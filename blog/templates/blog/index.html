@@ -1,0 +1,247 @@
+
+{% include "blog/header.html" %}
+
+
+ <!-- Navbar
+    ================================================== -->
+    
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Gossip Chat</a>
+    </div>
+    <div>
+    <!--
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Homw</a></li>
+        <li><a href="#">Page 2</a></li> 
+        <li><a href="#">Page 3</a></li> 
+      </ul>-->
+    </div>
+  </div>
+</nav>            
+
+<div class="container-fluid col-md-12">
+  <div class="col-lg-offset-5">
+    <label  class="control-label"><h1>LOGIN </h1></label>
+  </div>
+  <div class="col-lg-5 col-sm-offset-3">
+  
+  <form class="form-horizontal" role="form" action="/ulogin/" method="POST">
+  {% csrf_token %}
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+        <br>
+        <br>
+        
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Username" required="required" name="username">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <br>
+        <br>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Enter Password" required="required" name="password">
+        </div>
+      </div>
+
+{%if error%}
+<div class="alert alert-danger alert-dismissable">
+   <button type="button" class="close" data-dismiss="alert" 
+      aria-hidden="true">
+      &times;
+   </button>
+   {{error}}
+</div>
+{%endif%}
+{%if error1%}
+<div class="alert alert-danger alert-dismissable">
+   <button type="button" class="close" data-dismiss="alert" 
+      aria-hidden="true">
+      &times;
+   </button>
+   {{error1}}
+</div>
+{%endif%}
+{%if sucess%}
+<div class="alert alert-danger alert-dismissable">
+   <button type="button" class="close" data-dismiss="alert" 
+      aria-hidden="true">
+      &times;
+   </button>
+   {{sucess}}
+</div>
+{%endif%}
+
+
+
+  
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-info">Sign in</button>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+  Sign up
+</button>
+        </div>
+
+      </div>
+  </form>
+  </div>
+</div>
+
+
+
+
+<!-- LOGIN-->
+
+
+<!--end --> 
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <div class="col-lg-offset-2">
+    <label  class="control-label"><h1>SIGN UP NOW!</h1></label>
+  
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
+      </div>
+      <div class="modal-body">
+
+<div class="container-fluid col-md-12">
+  
+  <div class="col-lg-10 col-sm-offset-2">
+   <br><br>
+  <form class="form-horizontal" role="form" action="/register/" method="POST">
+  {% csrf_token %}
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Username:</label>
+        <br>
+        <br>
+        
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Username" required="required" name="username">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">FirstName:</label>
+        <br>
+        <br>
+        
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Username" required="required" name="firstname">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">LastName:</label>
+        <br>
+        <br>
+        
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="Enter Username" required="required" name="lastname">
+        </div>
+      </div>
+
+
+       <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">PhoneNumber:</label>
+        <br>
+        <br>
+        
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="inputEmail3" placeholder="Enter Username" required="required" name="phonenumber" pattern="[0-9]{10}">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <br>
+        <br>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Enter Password" required="required" name="password">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
+        <br>
+        <br>
+        <br>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Enter Password" required="required" name="cpassword">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Email</label>
+        <br>
+        <br>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputPassword3" placeholder="Enter Password" required="required" name="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">DOB</label>
+        <br>
+        <br>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="inputPassword3" placeholder="Enter Password" required="required" name="dob">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Profile Pic</label>
+        <br>
+        <br>
+        <div class="col-sm-10">
+            <input type="file" class="form-control" id="inputPassword3" placeholder="Enter Password" required="required" name="img">
+        </div>
+      </div>
+
+
+          <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-info">Sign up</button>
+        </div>
+
+      </div>
+  </form>
+  </div>
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{% include "blog/footer.html" %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load staticfiles %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script> 
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+   
+
+
+<script type="text/javascript">  
+        
+    function encode(control)
+    {
+        var ckey = $("#cryptonkey").val();
+        var y=document.getElementById(control).value;
+        var encrypted = CryptoJS.AES.encrypt(y, ckey);
+        document.getElementById("crypton").value=encrypted;
+    }
+
+    function decode(control)
+    {
+        var ckey = $("#cryptonkey").val();
+        var y=document.getElementById(control).value;
+        var decrypted = CryptoJS.AES.decrypt(y, ckey); 
+        decrypted = decrypted.toString(CryptoJS.enc.Utf8);
+        document.getElementById("cryptoff").value=decrypted;
+    } 
+    </script> 
+</head>
+</html>
+<!-- Button trigger modal -->
